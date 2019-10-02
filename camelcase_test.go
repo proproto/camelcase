@@ -45,3 +45,44 @@ func ExampleSplit() {
 	// "Two  spaces" => []string{"Two", "  ", "spaces"}
 	// "BadUTF8\xe2\xe2\xa1" => []string{"BadUTF8\xe2\xe2\xa1"}
 }
+
+func ExampleToMacroCase() {
+	for _, s := range []string{
+		"",
+		"lowercase",
+		"Class",
+		"MyClass",
+		"MyC",
+		"HTML",
+		"PDFLoader",
+		"AString",
+		"SimpleXMLParser",
+		"vimRPCPlugin",
+		"GL11Version",
+		"99Bottles",
+		"May5",
+		"BFG9000",
+		"BöseÜberraschung",
+		"Two  spaces",
+	} {
+		fmt.Printf("%#v => %#v\n", s, ToMacroCase(s))
+	}
+
+	// OUTPUT:
+	// "" => ""
+	// "lowercase" => "LOWERCASE"
+	// "Class" => "CLASS"
+	// "MyClass" => "MY_CLASS"
+	// "MyC" => "MY_C"
+	// "HTML" => "HTML"
+	// "PDFLoader" => "PDF_LOADER"
+	// "AString" => "A_STRING"
+	// "SimpleXMLParser" => "SIMPLE_XML_PARSER"
+	// "vimRPCPlugin" => "VIM_RPC_PLUGIN"
+	// "GL11Version" => "GL_11_VERSION"
+	// "99Bottles" => "99_BOTTLES"
+	// "May5" => "MAY_5"
+	// "BFG9000" => "BFG_9000"
+	// "BöseÜberraschung" => "BÖSE_ÜBERRASCHUNG"
+	// "Two  spaces" => "TWO_SPACES"
+}

@@ -3,6 +3,7 @@
 package camelcase
 
 import (
+	"strings"
 	"unicode"
 	"unicode/utf8"
 )
@@ -87,4 +88,20 @@ func Split(src string) (entries []string) {
 		}
 	}
 	return
+}
+
+// ToMacroCase convert camelCase string into macro case style
+func ToMacroCase(camelCase string) string {
+	tokens := Split(camelCase)
+	for i, token := range tokens {
+		tokens[i] = strings.ToUpper(token)
+	}
+
+	entries := tokens[:0]
+	for _, token := range tokens {
+		if strings.TrimSpace(token) != "" {
+			entries = append(entries, strings.ToUpper(token))
+		}
+	}
+	return strings.Join(entries, "_")
 }
