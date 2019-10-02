@@ -56,3 +56,27 @@ Below are some example cases:
 "Two  spaces" =>          ["Two", "  ", "spaces"]
 "BadUTF8\xe2\xe2\xa1" =>  ["BadUTF8\xe2\xe2\xa1"]
 ```
+
+
+## Additional to [fatih/camelcase](https://github.com/fatih/camelcase)
+### ToMacroCase
+```
+OUTPUT:
+"" => ""
+"lowercase" => "LOWERCASE"
+"Class" => "CLASS"
+"MyClass" => "MY_CLASS"
+"MyC" => "MY_C"
+"HTML" => "HTML"
+"PDFLoader" => "PDF_LOADER"
+"AString" => "A_STRING"
+"SimpleXMLParser" => "SIMPLE_XML_PARSER"
+"vimRPCPlugin" => "VIM_RPC_PLUGIN"
+"GL11Version" => "GL_11_VERSION"
+"99Bottles" => "99_BOTTLES"
+"May5" => "MAY_5"
+"BFG9000" => "BFG_9000"
+"BöseÜberraschung" => "BÖSE_ÜBERRASCHUNG"
+"Two  spaces" => "TWO_SPACES"
+```
+
